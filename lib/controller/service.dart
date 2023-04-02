@@ -31,7 +31,7 @@ class Service extends GetxController {
     }
   }
 
-  Future<void> sendsms() async {
+  Future<void> sendSms() async {
     // final Uri launchUri = Uri(
     //     scheme: 'sms',
     //     path: '9960590535',
