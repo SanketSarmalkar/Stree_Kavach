@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, unused_field, unused_import
+
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:get/get.dart';
@@ -25,7 +27,7 @@ class Service extends GetxController {
     //         titleText: Text("permissions not given!!"),
     //       );
     try {
-      bool? res = await FlutterPhoneDirectCaller.callNumber(phoneNumber);
+      await FlutterPhoneDirectCaller.callNumber(phoneNumber);
     } catch (e) {
       print(e);
     }
