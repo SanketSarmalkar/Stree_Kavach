@@ -1,6 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
+import 'package:stree_kavach/controller/permissions_handler.dart';
 import 'package:stree_kavach/controller/service.dart';
 import 'package:stree_kavach/screens/google_map_sample.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -14,6 +15,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final Service service = Service();
+  final PermissionsHandler permissionsController = PermissionsHandler();
 
   @override
   Widget build(BuildContext context) {
@@ -55,10 +57,11 @@ class _HomeState extends State<Home> {
                     minWidth: 150,
                     color: Colors.red,
                     onPressed: () async {
-                      await service.sendSms();
-                      //await service.sendEmail();
-                      String temp = "";
-                      await service.makePhoneCall(temp);
+                      // await service.sendSms();
+                      // //await service.sendEmail();
+                      // String temp = "";
+                      // await service.makePhoneCall(temp);
+                      await service.GetLocation();
                     },
                     child: const Text("EMERGENCY",
                         style: TextStyle(

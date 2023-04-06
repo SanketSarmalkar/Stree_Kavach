@@ -96,6 +96,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  geocode:
+    dependency: "direct main"
+    description:
+      name: geocode
+      sha256: "83405efd8c2c210d29d192af8f609b1ac13ad38ac1056324b3829e46ebbe48ac"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.2"
   get:
     dependency: "direct main"
     description:
@@ -136,6 +144,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.6"
+  http:
+    dependency: transitive
+    description:
+      name: http
+      sha256: "6aa2946395183537c8b880962d935877325d6a09a2867c3970c05c0fed6ac482"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.13.5"
   http_parser:
     dependency: transitive
     description:

@@ -2,18 +2,21 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:geocode/geocode.dart';
 import 'package:get/get.dart';
+import 'package:location/location.dart';
 import 'package:telephony/telephony.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
+import 'package:location/location.dart';
 
 class Service extends GetxController {
   bool _hasCallSupport = true.obs();
   void initState() {
     super.onInit();
-    UrlLauncher.canLaunchUrl(Uri(scheme: 'tel', path: '123'))
-        .then((bool result) {
-      _hasCallSupport = true;
-    });
+    // UrlLauncher.canLaunchUrl(Uri(scheme: 'tel', path: '123'))
+    //     .then((bool result) {
+    //   _hasCallSupport = true;
+    // });
   }
 
   Future<void> makePhoneCall(String phoneNumber) async {
@@ -48,9 +51,21 @@ class Service extends GetxController {
     };
     try {
       await telephony.sendSms(
-          to: '9960564634', message: 'Hello World', statusListener: listener);
+          to: '9960564634', message: ' ', statusListener: listener);
     } catch (e) {
       print(e);
     }
+  }
+
+  Future<void> GetLocation() async {
+    Location location = Location();
+    LocationData _locationData = await location.getLocation();
+    print(_locationData.longitude);
+    print(_locationData.latitude);
+    GeoCode geoCode = GeoCode();
+    Address addresses = await geoCode.reverseGeocoding(
+        latitude: _locationData.latitude ?? 78.00,
+        longitude: _locationData.longitude ?? 78.00);
+    print(addresses.city);
   }
 }
