@@ -7,11 +7,12 @@ import 'package:get/get.dart';
 import 'package:location/location.dart';
 import 'package:stree_kavach/controller/geocoding_location.dart';
 import 'package:telephony/telephony.dart';
-import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
-import 'package:location/location.dart';
+// import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 
 class Service extends GetxController {
-  bool _hasCallSupport = true.obs();
+  final _hasCallSupport = true.obs();
+  var latitude = 0.0.obs();
+  var longitude = 0.0.obs();
   GeocodingLocation geocodingLocation = GeocodingLocation();
   void initState() {
     super.onInit();
@@ -48,28 +49,28 @@ class Service extends GetxController {
     // await UrlLauncher.launchUrl(launchUri);
     final Telephony telephony = Telephony.instance;
 
-    final SmsSendStatusListener listener = (SendStatus status) {
-      print(status);
-    };
+    // final SmsSendStatusListener listener = (SendStatus status) {
+    //   print(status);
+    // };
     try {
       await telephony.sendSms(
-          to: '9960564634', message: ' ', statusListener: listener);
+          to: '9960564634', message: ' ' /*, statusListener: listener*/);
     } catch (e) {
       print(e);
     }
   }
 
-  Future<void> GetLocation() async {
+  Future<void> getLocation() async {
     Location location = Location();
-    LocationData _locationData = await location.getLocation();
-    print(_locationData.longitude);
-    print(_locationData.latitude);
+    LocationData locationData = await location.getLocation();
+    print(locationData.longitude);
+    print(locationData.latitude);
     // GeoCode geoCode = GeoCode();
     // Address addresses = await geoCode.reverseGeocoding(
     //     latitude: _locationData.latitude ?? 78.00,
     //     longitude: _locationData.longitude ?? 78.00);
     // print(addresses.city);
-    geocodingLocation.getPlacemark(
-        _locationData.latitude ?? 78.0, _locationData.longitude ?? 78.0);
+    latitude = locationData.latitude ?? 78.0;
+    longitude = locationData.longitude ?? 78.0;
   }
 }

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:location/location.dart';
@@ -25,6 +27,6 @@ class PermissionsHandler extends GetxController {
     if (_permissionGrantedSms.isDenied) {
       _permissionGrantedSms = await Permission.sms.request();
     }
-    print(_permissionGrantedLocation);
+    // print(_permissionGrantedLocation);
   }
 }
