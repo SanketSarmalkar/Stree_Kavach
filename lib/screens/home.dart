@@ -1,6 +1,8 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:stree_kavach/controller/geocoding_location.dart';
 import 'package:stree_kavach/controller/permissions_handler.dart';
 import 'package:stree_kavach/controller/service.dart';
 import 'package:stree_kavach/screens/google_map_sample.dart';
@@ -15,7 +17,10 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final Service service = Service();
+
   final PermissionsHandler permissionsController = PermissionsHandler();
+
+  final GeocodingLocation geocodingLocation = GeocodingLocation();
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +51,14 @@ class _HomeState extends State<Home> {
                 //     )
                 //   ]),
                 // ),
+                // Text("Your Location",
+                //     style:
+                //         TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                // Obx(
+                //   () => Text((geocodingLocation.placemark.isNotEmpty)
+                //       ? geocodingLocation.placemark[0].name.toString()
+                //       : "Loading..."),
+                // ),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: MaterialButton(
@@ -62,6 +75,7 @@ class _HomeState extends State<Home> {
                       // String temp = "";
                       // await service.makePhoneCall(temp);
                       await service.GetLocation();
+                      // print(geocodingLocation.placemark);
                     },
                     child: const Text("EMERGENCY",
                         style: TextStyle(

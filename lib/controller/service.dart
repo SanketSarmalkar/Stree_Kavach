@@ -5,12 +5,14 @@ import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:geocode/geocode.dart';
 import 'package:get/get.dart';
 import 'package:location/location.dart';
+import 'package:stree_kavach/controller/geocoding_location.dart';
 import 'package:telephony/telephony.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 import 'package:location/location.dart';
 
 class Service extends GetxController {
   bool _hasCallSupport = true.obs();
+  GeocodingLocation geocodingLocation = GeocodingLocation();
   void initState() {
     super.onInit();
     // UrlLauncher.canLaunchUrl(Uri(scheme: 'tel', path: '123'))
@@ -62,10 +64,12 @@ class Service extends GetxController {
     LocationData _locationData = await location.getLocation();
     print(_locationData.longitude);
     print(_locationData.latitude);
-    GeoCode geoCode = GeoCode();
-    Address addresses = await geoCode.reverseGeocoding(
-        latitude: _locationData.latitude ?? 78.00,
-        longitude: _locationData.longitude ?? 78.00);
-    print(addresses.city);
+    // GeoCode geoCode = GeoCode();
+    // Address addresses = await geoCode.reverseGeocoding(
+    //     latitude: _locationData.latitude ?? 78.00,
+    //     longitude: _locationData.longitude ?? 78.00);
+    // print(addresses.city);
+    geocodingLocation.getPlacemark(
+        _locationData.latitude ?? 78.0, _locationData.longitude ?? 78.0);
   }
 }
