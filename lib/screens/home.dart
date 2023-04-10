@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:stree_kavach/components/app_bar_mode.dart';
 import 'package:stree_kavach/components/location_screen.dart';
 import 'package:stree_kavach/controller/geocoding_location.dart';
 import 'package:stree_kavach/controller/permissions_handler.dart';
@@ -23,9 +24,14 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    var deviceWidth = MediaQuery.of(context).size.width;
+    var deviceHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Stree Kavach"),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(deviceHeight * 0.1),
+        child: AppBarMode(
+          title: "StreeKavach",
+        ),
       ),
       body: Container(
           color: Colors.amber,
@@ -50,10 +56,10 @@ class _HomeState extends State<Home> {
                       await service.getLocation();
                       geocodingLocation.getPlacemark(
                           service.latitude, service.longitude);
-                      await service.sendSms();
-                      //await service.sendEmail();
-                      String temp = "";
-                      await service.makePhoneCall(temp);
+                      // await service.sendSms();
+                      // //await service.sendEmail();
+                      // String temp = "";
+                      // await service.makePhoneCall(temp);
                       // print(geocodingLocation.state.value);
                     },
                     child: const Text("EMERGENCY",
