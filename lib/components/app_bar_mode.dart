@@ -17,7 +17,12 @@ class _AppBarModeState extends State<AppBarMode> {
     var deviceWidth = MediaQuery.of(context).size.width;
     var deviceHeight = MediaQuery.of(context).size.height;
     return AppBar(
-      title: Center(child: Text(widget.title)),
+      title: Center(
+          child: Text(
+        widget.title,
+        style:
+            TextStyle(fontWeight: FontWeight.bold, fontSize: deviceWidth * 0.1),
+      )),
     );
   }
 }
