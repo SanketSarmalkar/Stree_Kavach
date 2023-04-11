@@ -39,44 +39,43 @@ class _HomeState extends State<Home> {
         body: (permissionsController.allPermissionsGranted == "0")
             ? RequestAccess()
             : Container(
-                color: Colors.amber,
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      LocationScreen(),
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: MaterialButton(
-                          shape: const RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.black),
-                            borderRadius: BorderRadius.all(Radius.circular(75)),
-                          ),
-                          height: 150,
-                          minWidth: 150,
-                          color: Colors.red,
-                          onPressed: () async {
-                            await service.getLocation();
-                            geocodingLocation.getPlacemark(
-                                service.latitude, service.longitude);
-                            // await service.sendSms();
-                            // //await service.sendEmail();
-                            // String temp = "";
-                            // await service.makePhoneCall(temp);
-                            // print(geocodingLocation.state.value);
-                          },
-                          child: const Text("EMERGENCY",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold)),
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    LocationScreen(),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: MaterialButton(
+                        shape: const RoundedRectangleBorder(
+                          side: BorderSide(color: Colors.black),
+                          borderRadius: BorderRadius.all(Radius.circular(75)),
                         ),
+                        height: 150,
+                        minWidth: 150,
+                        color: Colors.red,
+                        onPressed: () async {
+                          await service.getLocation();
+                          geocodingLocation.getPlacemark(
+                              service.latitude, service.longitude);
+                          // await service.sendSms();
+                          // //await service.sendEmail();
+                          // String temp = "";
+                          // await service.makePhoneCall(temp);
+                          // print(geocodingLocation.state.value);
+                        },
+                        child: const Text("EMERGENCY",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold)),
                       ),
-                    ],
-                  ),
-                )),
+                    ),
+                  ],
+                ),
+              )),
       ),
     );
   }

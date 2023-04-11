@@ -14,7 +14,7 @@ class LocationScreen extends StatelessWidget {
     return Obx(
       () => Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Colors.blue[200],
           borderRadius: BorderRadius.circular(10),
         ),
         child: Column(children: <Widget>[
