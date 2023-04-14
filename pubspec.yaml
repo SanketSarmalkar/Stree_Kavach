@@ -45,6 +45,8 @@ dependencies:
   geocode: ^1.0.2
   geocoding: ^2.1.0
   app_settings: ^4.2.0
+  flutter_map: ^3.1.0
+  latlong2: ^0.8.1
 
 dev_dependencies:
   flutter_test:
