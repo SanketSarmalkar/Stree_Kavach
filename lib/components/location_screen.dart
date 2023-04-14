@@ -30,16 +30,28 @@ class LocationScreen extends StatelessWidget {
             width: 300,
             child: FlutterMap(
               options: MapOptions(
-                center: LatLng(
-                  service.latitude,
-                  service.longitude,
-                ),
-                zoom: 8.0,
+                center: LatLng(15.4080101, 74.0099979),
+                zoom: 18.0,
               ),
               children: [
                 TileLayer(
                   urlTemplate: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                   userAgentPackageName: 'dev.fleaflet.flutter_map.example',
+                ),
+                CircleLayer(
+                  circles: [],
+                ),
+                MarkerLayer(
+                  markers: [
+                    Marker(
+                      width: 80.0,
+                      height: 80.0,
+                      point: LatLng(15.4080101, 74.0099979),
+                      builder: (ctx) => Container(
+                        child: const Icon(Icons.location_on),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
