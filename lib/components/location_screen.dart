@@ -8,7 +8,8 @@ import 'package:stree_kavach/controller/geocoding_location.dart';
 import 'package:stree_kavach/controller/service.dart';
 
 class LocationScreen extends StatelessWidget {
-  LocationScreen({Key? key}) : super(key: key);
+  final MapController mapController;
+  LocationScreen({Key? key, required this.mapController}) : super(key: key);
 
   GeocodingLocation geocodingLocation = Get.put(GeocodingLocation());
   Service service = Get.put(Service());
@@ -26,12 +27,21 @@ class LocationScreen extends StatelessWidget {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           Text(geocodingLocation.name.value),
           Container(
-            height: 300,
-            width: 300,
+            height: 400,
+            width: 400,
             child: FlutterMap(
+              mapController: mapController,
               options: MapOptions(
-                center: LatLng(15.4080101, 74.0099979),
-                zoom: 18.0,
+                keepAlive: true,
+                center: LatLng(service.latitude, service.longitude),
+                zoom: 15.0,
+                // onMapEvent: (p0) {
+                //   Marker(
+                //       point: LatLng(service.latitude, service.longitude),
+                //       builder: (ctx) => Container(
+                //             child: const Icon(Icons.location_on),
+                //           ));
+                // },
               ),
               children: [
                 TileLayer(
@@ -44,9 +54,7 @@ class LocationScreen extends StatelessWidget {
                 MarkerLayer(
                   markers: [
                     Marker(
-                      width: 80.0,
-                      height: 80.0,
-                      point: LatLng(15.4080101, 74.0099979),
+                      point: LatLng(service.latitude, service.longitude),
                       builder: (ctx) => Container(
                         child: const Icon(Icons.location_on),
                       ),

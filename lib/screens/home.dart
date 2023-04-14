@@ -1,7 +1,9 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
 import 'package:get/get.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:stree_kavach/components/app_bar_mode.dart';
 import 'package:stree_kavach/components/location_screen.dart';
 import 'package:stree_kavach/controller/geocoding_location.dart';
@@ -22,7 +24,7 @@ class _HomeState extends State<Home> {
   Service service = Get.put(Service());
   GeocodingLocation geocodingLocation = Get.put(GeocodingLocation());
   PermissionsHandler permissionsController = Get.put(PermissionsHandler());
-
+  MapController myController = MapController();
   @override
   Widget build(BuildContext context) {
     var deviceWidth = MediaQuery.of(context).size.width;
@@ -45,7 +47,9 @@ class _HomeState extends State<Home> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    LocationScreen(),
+                    LocationScreen(
+                      mapController: myController,
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: MaterialButton(
@@ -73,6 +77,64 @@ class _HomeState extends State<Home> {
                                 fontWeight: FontWeight.bold)),
                       ),
                     ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: MaterialButton(
+                            shape: const RoundedRectangleBorder(
+                              side: BorderSide(color: Colors.black),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(75)),
+                            ),
+                            height: 50,
+                            color: Colors.blue[400],
+                            onPressed: () async {
+                              await service.getLocation();
+                              myController.move(
+                                  LatLng(service.latitude, service.longitude),
+                                  18.0);
+                              // myController.latLngToScreenPoint(
+                              //     LatLng(service.latitude, service.longitude));
+                            },
+                            child: const Text("Current Location",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: MaterialButton(
+                            shape: const RoundedRectangleBorder(
+                              side: BorderSide(color: Colors.black),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(75)),
+                            ),
+                            height: 50,
+                            color: Colors.blue[400],
+                            onPressed: () {},
+                            child: Row(
+                              children: const [
+                                Padding(
+                                  padding: EdgeInsets.only(right: 8.0),
+                                  child: Text("Settings",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold)),
+                                ),
+                                Icon(
+                                  Icons.settings,
+                                  color: Colors.white,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               )),
