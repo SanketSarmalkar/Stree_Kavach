@@ -1,4 +1,4 @@
-// ignore_for_file: unused_import
+// ignore_for_file: unused_import, unused_local_variable, unrelated_type_equality_checks
 
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -39,9 +39,8 @@ class _HomeState extends State<Home> {
           ),
         ),
         body: (permissionsController.allPermissionsGranted == "0")
-            ? RequestAccess()
-            : Container(
-                child: Padding(
+            ? const RequestAccess()
+            : Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -139,7 +138,7 @@ class _HomeState extends State<Home> {
                     )
                   ],
                 ),
-              )),
+              ),
       ),
     );
   }

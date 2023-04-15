@@ -26,7 +26,7 @@ class LocationScreen extends StatelessWidget {
           const Text("Your Location",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           Text(geocodingLocation.name.value),
-          Container(
+          SizedBox(
             height: 400,
             width: 400,
             child: FlutterMap(
@@ -48,16 +48,11 @@ class LocationScreen extends StatelessWidget {
                   urlTemplate: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                   userAgentPackageName: 'dev.fleaflet.flutter_map.example',
                 ),
-                CircleLayer(
-                  circles: [],
-                ),
                 MarkerLayer(
                   markers: [
                     Marker(
                       point: LatLng(service.latitude, service.longitude),
-                      builder: (ctx) => Container(
-                        child: const Icon(Icons.location_on),
-                      ),
+                      builder: (ctx) => const Icon(Icons.location_on),
                     ),
                   ],
                 ),
