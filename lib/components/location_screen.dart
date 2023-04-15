@@ -34,7 +34,7 @@ class LocationScreen extends StatelessWidget {
               options: MapOptions(
                 keepAlive: true,
                 center: LatLng(service.latitude, service.longitude),
-                zoom: 15.0,
+                zoom: 12.0,
                 // onMapEvent: (p0) {
                 //   Marker(
                 //       point: LatLng(service.latitude, service.longitude),

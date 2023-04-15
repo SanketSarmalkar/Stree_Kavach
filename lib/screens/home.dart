@@ -94,6 +94,8 @@ class _HomeState extends State<Home> {
                               myController.move(
                                   LatLng(service.latitude, service.longitude),
                                   18.0);
+                              geocodingLocation.getPlacemark(
+                                  service.latitude, service.longitude);
                               // myController.latLngToScreenPoint(
                               //     LatLng(service.latitude, service.longitude));
                             },
