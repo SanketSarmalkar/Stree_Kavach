@@ -11,6 +11,7 @@ import 'package:stree_kavach/controller/permissions_handler.dart';
 import 'package:stree_kavach/controller/service.dart';
 import 'package:stree_kavach/screens/google_map_sample.dart';
 import 'package:stree_kavach/screens/request_access.dart';
+import 'package:stree_kavach/screens/setting.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
@@ -40,14 +41,19 @@ class _HomeState extends State<Home> {
         ),
         body: (permissionsController.allPermissionsGranted == "0")
             ? const RequestAccess()
-            : Padding(
-                padding: const EdgeInsets.all(8.0),
+            : Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue[50],
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    LocationScreen(
-                      mapController: myController,
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: LocationScreen(
+                        mapController: myController,
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(16.0),
@@ -77,6 +83,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -98,11 +105,19 @@ class _HomeState extends State<Home> {
                               // myController.latLngToScreenPoint(
                               //     LatLng(service.latitude, service.longitude));
                             },
-                            child: const Text("Current Location",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold)),
+                            child: Row(
+                              children: const [
+                                Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text("Current Location",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold)),
+                                ),
+                                Icon(Icons.location_on, color: Colors.white),
+                              ],
+                            ),
                           ),
                         ),
                         Padding(
@@ -115,7 +130,9 @@ class _HomeState extends State<Home> {
                             ),
                             height: 50,
                             color: Colors.blue[400],
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.to(() => const Setting());
+                            },
                             child: Row(
                               children: const [
                                 Padding(
@@ -123,7 +140,7 @@ class _HomeState extends State<Home> {
                                   child: Text("Settings",
                                       style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: 20,
+                                          fontSize: 15,
                                           fontWeight: FontWeight.bold)),
                                 ),
                                 Icon(
