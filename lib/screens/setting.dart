@@ -9,101 +9,105 @@ class Setting extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Settings"),
       ),
-      body: Form(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: Container(
-                alignment: Alignment.center,
-                child: const Text("Helper 1",
-                    style:
-                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Container(
-                padding: const EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                  color: Colors.blue[50],
-                  borderRadius: BorderRadius.circular(10),
+      body: ListView(
+        children: [
+          Form(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: const Text("Helper 1",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold)),
+                  ),
                 ),
-                child: Column(
-                  children: [
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        labelText: "Name",
-                        hintText: "Enter your name",
-                      ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Container(
+                    padding: const EdgeInsets.all(10.0),
+                    decoration: BoxDecoration(
+                      color: Colors.blue[50],
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        labelText: "Email",
-                        hintText: "Enter your email",
-                      ),
+                    child: Column(
+                      children: [
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            labelText: "Name",
+                            hintText: "Enter your name",
+                          ),
+                        ),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            labelText: "Email",
+                            hintText: "Enter your email",
+                          ),
+                        ),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            labelText: "Phone Number",
+                            hintText: "Enter your phone number",
+                          ),
+                        ),
+                      ],
                     ),
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        labelText: "Phone Number",
-                        hintText: "Enter your phone number",
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: Container(
-                alignment: Alignment.center,
-                child: const Text("Helper 2",
-                    style:
-                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Container(
-                padding: const EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                  color: Colors.blue[50],
-                  borderRadius: BorderRadius.circular(10),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: const Text("Helper 2",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold)),
+                  ),
                 ),
-                child: Column(
-                  children: [
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        labelText: "Name",
-                        hintText: "Enter your name",
-                      ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Container(
+                    padding: const EdgeInsets.all(10.0),
+                    decoration: BoxDecoration(
+                      color: Colors.blue[50],
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        labelText: "Email",
-                        hintText: "Enter your email",
-                      ),
+                    child: Column(
+                      children: [
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            labelText: "Name",
+                            hintText: "Enter your name",
+                          ),
+                        ),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            labelText: "Email",
+                            hintText: "Enter your email",
+                          ),
+                        ),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            labelText: "Phone Number",
+                            hintText: "Enter your phone number",
+                          ),
+                        ),
+                      ],
                     ),
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        labelText: "Phone Number",
-                        hintText: "Enter your phone number",
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: const Text("Save"),
+                  ),
+                ),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: ElevatedButton(
-                onPressed: () {},
-                child: const Text("Save"),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -16,6 +16,7 @@ class LocationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double? height = MediaQuery.of(context).size.height;
     return Obx(
       () => Container(
         decoration: BoxDecoration(
@@ -27,14 +28,14 @@ class LocationScreen extends StatelessWidget {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           Text(geocodingLocation.name.value),
           SizedBox(
-            height: 400,
+            height: height * 0.8,
             width: 400,
             child: FlutterMap(
               mapController: mapController,
               options: MapOptions(
                 keepAlive: true,
                 center: LatLng(service.latitude, service.longitude),
-                zoom: 12.0,
+                zoom: 10.0,
                 // onMapEvent: (p0) {
                 //   Marker(
                 //       point: LatLng(service.latitude, service.longitude),
