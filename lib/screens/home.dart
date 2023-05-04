@@ -30,7 +30,7 @@ class _HomeState extends State<Home> {
     return Obx(
       () => Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(deviceHeight * 0.07),
+          preferredSize: Size.fromHeight(deviceHeight * 0.15),
           child: AppBarMode(
             title: "StreeKavach",
           ),

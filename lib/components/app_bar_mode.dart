@@ -18,13 +18,28 @@ class _AppBarModeState extends State<AppBarMode> {
   Widget build(BuildContext context) {
     var deviceWidth = MediaQuery.of(context).size.width;
     var deviceHeight = MediaQuery.of(context).size.height;
-    return AppBar(
-      title: Center(
-          child: Text(
-        widget.title,
-        style:
-            TextStyle(fontWeight: FontWeight.bold, fontSize: deviceWidth * 0.1),
-      )),
+    return SafeArea(
+      child: Container(
+        color: Colors.blue[50],
+        height: deviceHeight * 0.1,
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: deviceWidth * 0.03, vertical: deviceHeight * 0.015),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.blue[200],
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Center(
+              child: Text("StreeKavach",
+                  style: TextStyle(
+                      fontSize: deviceWidth * 0.09,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black)),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

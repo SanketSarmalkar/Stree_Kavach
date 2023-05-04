@@ -28,7 +28,7 @@ class LocationScreen extends StatelessWidget {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           Text(geocodingLocation.name.value),
           SizedBox(
-            height: height * 0.8,
+            height: height * 0.77,
             width: 400,
             child: FlutterMap(
               mapController: mapController,
