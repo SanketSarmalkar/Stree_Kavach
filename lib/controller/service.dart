@@ -72,5 +72,6 @@ class Service extends GetxController {
     // print(addresses.city);
     latitude = locationData.latitude ?? 78.0;
     longitude = locationData.longitude ?? 78.0;
+    await geocodingLocation.getPlacemark(latitude, longitude);
   }
 }

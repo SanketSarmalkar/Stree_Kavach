@@ -12,28 +12,56 @@ class PermissionsHandler extends GetxController {
   var smsPermission = false.obs;
   Location location = Location();
 
-  Future<void> checkService() async {
+  @override
+  void onInit() {
+    super.onInit();
+    checkService();
+  }
+
+  bool checkPermission() {
+    if (allPermissionsGranted.value == "1") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  void checkService() async {
     if (await Permission.phone.request().isGranted &&
         await Permission.location.request().isGranted &&
         await Permission.sms.request().isGranted) {
       allPermissionsGranted.value = "1";
     } else {
-      (await Permission.location.request() == true)
+      (await Permission.location.isGranted == true)
           ? locationPermission.value = true
           : null;
-      (await Permission.phone.request() == true)
+      (await Permission.phone.isGranted == true)
           ? phonePermission.value = true
           : null;
-      (await Permission.sms.request() == true)
+      (await Permission.sms.isGranted == true)
           ? smsPermission.value = true
           : null;
     }
     // print(_permissionGrantedLocation);
   }
 
-  Future<void> checkServiceAfterDenied() async {
+  void requestPermissions() async {
+    await Permission.location.request();
+    await Permission.phone.request();
+    await Permission.sms.request();
+    checkService();
+  }
+
+  void checkServiceAfterDenied() async {
     if (!await Permission.location.request().isGranted) {
       AppSettings.openLocationSettings();
     }
+    if (!await Permission.phone.request().isGranted) {
+      AppSettings.openAppSettings();
+    }
+    if (!await Permission.sms.request().isGranted) {
+      AppSettings.openAppSettings();
+    }
+    checkService();
   }
 }

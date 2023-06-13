@@ -7,12 +7,24 @@ import 'package:latlong2/latlong.dart';
 import 'package:stree_kavach/controller/geocoding_location.dart';
 import 'package:stree_kavach/controller/service.dart';
 
-class LocationScreen extends StatelessWidget {
+class LocationScreen extends StatefulWidget {
   final MapController mapController;
-  LocationScreen({Key? key, required this.mapController}) : super(key: key);
+  const LocationScreen({Key? key, required this.mapController})
+      : super(key: key);
 
+  @override
+  State<LocationScreen> createState() => _LocationScreenState();
+}
+
+class _LocationScreenState extends State<LocationScreen> {
   GeocodingLocation geocodingLocation = Get.put(GeocodingLocation());
   Service service = Get.put(Service());
+
+  @override
+  void initState() {
+    super.initState();
+    service.getLocation();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +41,9 @@ class LocationScreen extends StatelessWidget {
           Text(geocodingLocation.name.value),
           SizedBox(
             height: height * 0.77,
-            width: 400,
+            //width: 400,
             child: FlutterMap(
-              mapController: mapController,
+              mapController: widget.mapController,
               options: MapOptions(
                 keepAlive: true,
                 center: LatLng(service.latitude, service.longitude),

@@ -12,6 +12,7 @@ class RequestAccess extends StatefulWidget {
 }
 
 class _RequestAccessState extends State<RequestAccess> {
+  bool first = false;
   PermissionsHandler permissionsHandler = Get.put(PermissionsHandler());
 
   @override
@@ -29,8 +30,15 @@ class _RequestAccessState extends State<RequestAccess> {
               height: 150,
               minWidth: 150,
               color: Colors.blue,
-              onPressed: () async {
-                permissionsHandler.checkServiceAfterDenied();
+              onPressed: () {
+                if (!first) {
+                  permissionsHandler.requestPermissions();
+                  setState(() {
+                    first = true;
+                  });
+                } else {
+                  permissionsHandler.checkServiceAfterDenied();
+                }
               },
               child: const Text(
                 "Request Permissions",
