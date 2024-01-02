@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:stree_kavach/controller/permissions_handler.dart';
 import 'package:stree_kavach/screens/permission_wrapper.dart';
 

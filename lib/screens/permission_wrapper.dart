@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:stree_kavach/controller/permissions_handler.dart';
 import 'package:stree_kavach/screens/home.dart';
 import 'package:stree_kavach/screens/request_access.dart';

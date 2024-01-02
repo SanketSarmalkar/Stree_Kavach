@@ -7,7 +7,6 @@ import 'package:stree_kavach/components/location_screen.dart';
 import 'package:stree_kavach/controller/geocoding_location.dart';
 import 'package:stree_kavach/controller/permissions_handler.dart';
 import 'package:stree_kavach/controller/service.dart';
-import 'package:stree_kavach/screens/request_access.dart';
 import 'package:stree_kavach/screens/setting.dart';
 
 class Home extends StatefulWidget {
@@ -30,7 +29,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(deviceHeight * 0.15),
-        child: AppBarMode(
+        child: const AppBarMode(
           title: "StreeKavach",
         ),
       ),
@@ -106,8 +105,8 @@ class _HomeState extends State<Home> {
                         // myController.latLngToScreenPoint(
                         //     LatLng(service.latitude, service.longitude));
                       },
-                      child: Row(
-                        children: const [
+                      child: const Row(
+                        children: [
                           Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Text("Current Location",
@@ -133,8 +132,8 @@ class _HomeState extends State<Home> {
                       onPressed: () {
                         Get.to(() => const Setting());
                       },
-                      child: Row(
-                        children: const [
+                      child: const Row(
+                        children: [
                           Padding(
                             padding: EdgeInsets.only(right: 8.0),
                             child: Text("Settings",
