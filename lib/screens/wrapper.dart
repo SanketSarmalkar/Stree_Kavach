@@ -3,20 +3,27 @@ import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:stree_kavach/controller/permissions_handler.dart';
-import 'package:stree_kavach/screens/home.dart';
-import 'package:stree_kavach/screens/request_access.dart';
+import 'package:stree_kavach/screens/permission_wrapper.dart';
 
-class Wrapper extends StatelessWidget {
+class Wrapper extends StatefulWidget {
   const Wrapper({super.key});
 
   @override
+  State<Wrapper> createState() => _WrapperState();
+}
+
+class _WrapperState extends State<Wrapper> {
+  PermissionsHandler permissionsHandler = PermissionsHandler();
+
+  @override
   Widget build(BuildContext context) {
-    PermissionsHandler permissionsHandler = Get.put(PermissionsHandler());
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Obx(() => (permissionsHandler.checkPermission())
-          ? const Home()
-          : const Scaffold(body: SafeArea(child: RequestAccess()))),
+      home: const PermissionWrapper(),
+      theme: ThemeData(
+        useMaterial3: true,
+        primarySwatch: Colors.blue,
+      ),
     );
   }
 }

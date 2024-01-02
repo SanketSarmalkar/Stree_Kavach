@@ -2,14 +2,13 @@
 
 import 'package:flutter/material.dart';
 
-class AppBarMode extends StatefulWidget with PreferredSizeWidget {
+class AppBarMode extends StatefulWidget {
   final String title;
-  AppBarMode({Key? key, required this.title}) : super(key: key);
+  const AppBarMode({Key? key, required this.title}) : super(key: key);
 
   @override
   State<AppBarMode> createState() => _AppBarModeState();
 
-  @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
 
