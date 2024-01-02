@@ -12,12 +12,6 @@ class PermissionsHandler extends GetxController {
   var smsPermission = false.obs;
   Location location = Location();
 
-  @override
-  void onInit() {
-    super.onInit();
-    checkService();
-  }
-
   bool checkPermission() {
     if (allPermissionsGranted.value == "1") {
       return true;
@@ -26,10 +20,13 @@ class PermissionsHandler extends GetxController {
     }
   }
 
-  void checkService() async {
+  Future<bool> checkService() async {
     if (await Permission.phone.request().isGranted &&
         await Permission.location.request().isGranted &&
         await Permission.sms.request().isGranted) {
+      locationPermission.value = true;
+      phonePermission.value = true;
+      smsPermission.value = true;
       allPermissionsGranted.value = "1";
     } else {
       (await Permission.location.isGranted == true)
@@ -42,20 +39,21 @@ class PermissionsHandler extends GetxController {
           ? smsPermission.value = true
           : null;
     }
-    // print(_permissionGrantedLocation);
+    return checkPermission();
   }
 
-  void requestPermissions() async {
+  Future<bool> requestPermissions() async {
     await Permission.location.request();
     await Permission.phone.request();
     await Permission.sms.request();
-    checkService();
+    return checkService();
   }
 
   void checkServiceAfterDenied() async {
     if (!await Permission.location.request().isGranted) {
       AppSettings.openLocationSettings();
     }
+
     if (!await Permission.phone.request().isGranted) {
       AppSettings.openAppSettings();
     }
