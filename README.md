@@ -2,6 +2,9 @@
 
 Stree Kawach is a powerful Flutter app designed to empower and ensure the safety of women. With a range of features and functionalities, it aims to provide a sense of security and assistance in emergency situations. This README file provides an overview of the app, its features, setup instructions, and other important details.
 
+# Screenshots
+<div><img src="./assets/image/screenshot.jpg"></div>
+
 ## Features
 
 ### 1. Emergency SOS
