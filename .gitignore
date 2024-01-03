@@ -32,6 +32,14 @@ migrate_working_dir/
 .pub/
 /build/
 
+# source code
+.lib/components
+.lib/models
+.lib/controller
+.lib/route
+.lib/screens
+
+
 # Symbolication related
 app.*.symbols
 
