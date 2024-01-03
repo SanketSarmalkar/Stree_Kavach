@@ -15,9 +15,9 @@ Stree Kawach is a powerful Flutter app designed to empower and ensure the safety
 </div>
 
 # Screen Recording
-<iframe width="914" height="514" src="https://www.youtube.com/embed/12S6djBV3ng" title="StreeKavach" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<!-- <iframe width="914" height="514" src="https://www.youtube.com/embed/12S6djBV3ng" title="StreeKavach" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
 
-[![StreeKavach](https://youtu.be/12S6djBV3ng/0.jpg)](https://www.youtube.com/watch?v=12S6djBV3ng)
+[![StreeKavach](https://img.youtube.com/vi/0.jpg)](https://www.youtube.com/watch?v=12S6djBV3ng)
 
 ## Features
 
