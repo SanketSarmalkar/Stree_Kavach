@@ -1,6 +1,6 @@
-# Stree Kawach
+# Stree Kavach
 
-Stree Kawach is a powerful Flutter app designed to empower and ensure the safety of women. With a range of features and functionalities, it aims to provide a sense of security and assistance in emergency situations. This README file provides an overview of the app, its features, setup instructions, and other important details.
+Stree Kavach is a powerful Flutter app designed to empower and ensure the safety of women. With a range of features and functionalities, it aims to provide a sense of security and assistance in emergency situations. This README file provides an overview of the app, its features, setup instructions, and other important details.
 
 <!-- # Screenshots
 <div><img src="./assets/image/screenshot.jpg"></div> -->
@@ -17,7 +17,7 @@ Stree Kawach is a powerful Flutter app designed to empower and ensure the safety
 # Screen Recording
 <!-- <iframe width="914" height="514" src="https://www.youtube.com/embed/12S6djBV3ng" title="StreeKavach" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
 
-[![StreeKavach](https://img.youtube.com/vi/0.jpg)](https://www.youtube.com/watch?v=12S6djBV3ng)
+[![StreeKavach](https://img.youtube.com/12S6djBV3ng/vi/0.jpg)](https://www.youtube.com/watch?v=12S6djBV3ng)
 
 ## Features
 
@@ -49,7 +49,7 @@ Stree Kawach is a powerful Flutter app designed to empower and ensure the safety
 ## Installation and Setup
 
 - Clone the repository:
-git clone https://github.com/your-username/stree-kawach.git
+git clone https://github.com/SanketSarmalkar/Stree_Kavach.git
 
 - Navigate to the project directory:
 cd stree-kawach
@@ -71,10 +71,4 @@ Please make sure you have Flutter and Dart SDK installed on your machine before 
 
 Contributions are welcome! If you have any ideas, bug reports, or feature requests, please open an issue or submit a pull request. Make sure to follow the code style and guidelines mentioned in the project.
 
-## License
 
-This project is licensed under the [MIT License](LICENSE).
-
-## Acknowledgments
-
-We would like to thank the open-source community for their valuable contributions and the libraries used in this project. Special thanks to [Library Name] for providing [specific functionality/library name].
