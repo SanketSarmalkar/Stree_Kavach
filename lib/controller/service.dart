@@ -14,24 +14,8 @@ class Service extends GetxController {
   var latitude = 0.0.obs();
   var longitude = 0.0.obs();
   GeocodingLocation geocodingLocation = GeocodingLocation();
-  void initState() {
-    super.onInit();
-    // UrlLauncher.canLaunchUrl(Uri(scheme: 'tel', path: '123'))
-    //     .then((bool result) {
-    //   _hasCallSupport = true;
-    // });
-  }
 
   Future<void> makePhoneCall(String phoneNumber) async {
-    // final Uri launchUri = Uri(
-    //   scheme: 'tel',
-    //   path: phoneNumber,
-    // );
-    // (_hasCallSupport)
-    //     ? await UrlLauncher.launchUrl(launchUri)
-    //     : const GetSnackBar(
-    //         titleText: Text("permissions not given!!"),
-    //       );
     try {
       await FlutterPhoneDirectCaller.callNumber(phoneNumber);
     } catch (e) {
@@ -40,21 +24,13 @@ class Service extends GetxController {
   }
 
   Future<void> sendSms() async {
-    // final Uri launchUri = Uri(
-    //     scheme: 'sms',
-    //     path: '9960590535',
-    //     queryParameters: <String, String>{
-    //       'body': Uri.encodeComponent('Example Subject')
-    //     });
-    // await UrlLauncher.launchUrl(launchUri);
     final Telephony telephony = Telephony.instance;
 
-    // final SmsSendStatusListener listener = (SendStatus status) {
-    //   print(status);
-    // };
     try {
       await telephony.sendSms(
-          to: '9960564634', message: ' ' /*, statusListener: listener*/);
+          to: '9960564634',
+          message:
+              'Alert By StreeKavach \n !! Help !!\n My co-ordinates\n Latitude:$latitude\n Longitude:$longitude,\n Address: ${"${geocodingLocation.street},${geocodingLocation.city}"}' /*, statusListener: listener*/);
     } catch (e) {
       print(e);
     }
@@ -65,11 +41,6 @@ class Service extends GetxController {
     LocationData locationData = await location.getLocation();
     print(locationData.longitude);
     print(locationData.latitude);
-    // GeoCode geoCode = GeoCode();
-    // Address addresses = await geoCode.reverseGeocoding(
-    //     latitude: _locationData.latitude ?? 78.00,
-    //     longitude: _locationData.longitude ?? 78.00);
-    // print(addresses.city);
     latitude = locationData.latitude ?? 78.0;
     longitude = locationData.longitude ?? 78.0;
     await geocodingLocation.getPlacemark(latitude, longitude);

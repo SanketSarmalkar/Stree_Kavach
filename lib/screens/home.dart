@@ -69,11 +69,19 @@ class _HomeState extends State<Home> {
                   await service.getLocation();
                   // geocodingLocation.getPlacemark(
                   //     service.latitude, service.longitude);
-                  // await service.sendSms();
+                  await service.sendSms();
                   // //await service.sendEmail();
                   // String temp = "";
                   // await service.makePhoneCall(temp);
-                  // print(geocodingLocation.state.value);
+                  print(geocodingLocation.state.value);
+                  Get.snackbar(
+                    "Success",
+                    "Alert Sent",
+                    snackPosition: SnackPosition.BOTTOM,
+                    backgroundColor: Colors.white,
+                    colorText: Colors.green,
+                    duration: const Duration(seconds: 2),
+                  );
                 },
                 child: const Text("EMERGENCY",
                     style: TextStyle(
@@ -100,6 +108,7 @@ class _HomeState extends State<Home> {
                         await service.getLocation();
                         myController.move(
                             LatLng(service.latitude, service.longitude), 18.0);
+
                         // geocodingLocation.getPlacemark(
                         //     service.latitude, service.longitude);
                         // myController.latLngToScreenPoint(
