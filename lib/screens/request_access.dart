@@ -5,7 +5,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:stree_kavach/controller/permissions_handler.dart';
 import 'package:get/get.dart';
-import 'package:stree_kavach/screens/home.dart';
+import 'package:stree_kavach/screens/wrapper_user_info.dart';
 
 class RequestAccess extends StatefulWidget {
   const RequestAccess({Key? key}) : super(key: key);
@@ -143,7 +143,7 @@ class _RequestAccessState extends State<RequestAccess> {
                             permissionsHandler.checkServiceAfterDenied();
                           } else {
                             Timer(const Duration(seconds: 2), () {
-                              Get.to(const Home());
+                              Get.to(const Wrapper());
                             });
                           }
                         },

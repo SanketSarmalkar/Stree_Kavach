@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stree_kavach/controller/permissions_handler.dart';
 import 'package:stree_kavach/screens/home.dart';
 import 'package:stree_kavach/screens/request_access.dart';
+import 'package:stree_kavach/screens/wrapper_user_info.dart';
 
 class PermissionWrapper extends StatefulWidget {
   const PermissionWrapper({super.key});
@@ -24,7 +25,7 @@ class _PermissionWrapperState extends State<PermissionWrapper> {
             return Text('Error: ${snapshot.error}');
           } else {
             return (snapshot.data == true)
-                ? const Home()
+                ? const Wrapper()
                 : const RequestAccess();
           }
         }
