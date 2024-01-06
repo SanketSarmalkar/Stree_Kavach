@@ -73,7 +73,8 @@ class _HomeState extends State<Home> {
                   // //await service.sendEmail();
                   // String temp = "";
                   // await service.makePhoneCall(temp);
-                  print(geocodingLocation.state.value);
+                  await service.telegramBotAlert();
+                  // print(geocodingLocation.state.value);
                   Get.snackbar(
                     "Success",
                     "Alert Sent",
@@ -106,6 +107,7 @@ class _HomeState extends State<Home> {
                       color: Colors.blue[400],
                       onPressed: () async {
                         await service.getLocation();
+
                         myController.move(
                             LatLng(service.latitude, service.longitude), 18.0);
 

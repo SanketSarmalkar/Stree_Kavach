@@ -16,7 +16,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
   // write data
   void writeData(String userName) {
     _myBox.put('user', userName);
-    print(_myBox.get('user').toString());
+    // print(_myBox.get('user').toString());
   }
 
   String newName = '';
