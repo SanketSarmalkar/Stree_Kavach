@@ -7,17 +7,13 @@ Stree Kavach is a powerful Flutter app designed to empower and ensure the safety
 
 # Mockups
 <div style="display: flex; flex-direction: row; overflow-x: scroll;">
-    <img src="./assets/image/Samsung Galaxy S20+ Screenshot 0.png" width="40%" height="30%" style="padding: 0.5%;">
-    <img src="./assets/image/Samsung Galaxy S20+ Screenshot 1.png" width="40%" height="30%" style="padding: 0.5%;">
-    <img src="./assets/image/Samsung Galaxy S20+ Screenshot 2.png" width="40%" height="30%" style="padding: 0.5%;">
-    <img src="./assets/image/Samsung Galaxy S20+ Screenshot 3.png" width="40%" height="30%" style="padding: 0.5%;">
-    <img src="./assets/image/Samsung Galaxy S20+ Screenshot 4.png" width="40%" height="30%" style="padding: 0.5%;">
+    <img src="./assets/image/Samsung Galaxy S20+ Screenshot 0.png" width="40%" height="30%" style="padding: 1%;">
+    <img src="./assets/image/Samsung Galaxy S20+ Screenshot 1.png" width="40%" height="30%" style="padding: 1%;">
+    <img src="./assets/image/Samsung Galaxy S20+ Screenshot 2.png" width="40%" height="30%" style="padding: 1%;">
+    <img src="./assets/image/Samsung Galaxy S20+ Screenshot 3.png" width="40%" height="30%" style="padding: 1%;">
+    <img src="./assets/image/Samsung Galaxy S20+ Screenshot 4.png" width="40%" height="30%" style="padding: 1%;">
 </div>
 
-# Screen Recording
-<!-- <iframe width="914" height="514" src="https://www.youtube.com/embed/12S6djBV3ng" title="StreeKavach" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
-
-[![StreeKavach](https://img.youtube.com/12S6djBV3ng/vi/0.jpg)](https://www.youtube.com/watch?v=12S6djBV3ng)
 
 ## Features
 
