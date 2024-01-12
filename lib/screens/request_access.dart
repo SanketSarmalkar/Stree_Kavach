@@ -3,6 +3,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:stree_kavach/controller/permissions_handler.dart';
 import 'package:get/get.dart';
 import 'package:stree_kavach/screens/wrapper_user_info.dart';
@@ -141,6 +142,10 @@ class _RequestAccessState extends State<RequestAccess> {
                           if (permissionsHandler.requestPermissions() ==
                               false) {
                             permissionsHandler.checkServiceAfterDenied();
+                            if (permissionsHandler.checkPermission() == false) {
+                              SystemChannels.platform
+                                  .invokeMethod('SystemNavigator.pop');
+                            }
                           } else {
                             Timer(const Duration(seconds: 2), () {
                               Get.to(const Wrapper());
