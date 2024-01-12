@@ -1,8 +1,15 @@
 import "package:flutter/material.dart";
+import "package:hive_flutter/hive_flutter.dart";
 
-class Setting extends StatelessWidget {
+class Setting extends StatefulWidget {
   const Setting({super.key});
 
+  @override
+  State<Setting> createState() => _SettingState();
+}
+
+class _SettingState extends State<Setting> {
+  final mybox = Hive.box('myBox');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,18 +67,27 @@ class Setting extends StatelessWidget {
                                       labelText: "Name",
                                       hintText: "Enter your name",
                                     ),
+                                    onChanged: (value) {
+                                      mybox.put('helper_1_name', value);
+                                    },
                                   ),
                                   TextFormField(
                                     decoration: const InputDecoration(
                                       labelText: "Email",
                                       hintText: "Enter your email",
                                     ),
+                                    onChanged: (value) {
+                                      mybox.put('helper_1_email', value);
+                                    },
                                   ),
                                   TextFormField(
                                     decoration: const InputDecoration(
                                       labelText: "Phone Number",
                                       hintText: "Enter your phone number",
                                     ),
+                                    onChanged: (value) {
+                                      mybox.put('helper_1_phone', value);
+                                    },
                                   ),
                                 ],
                               ),
@@ -120,18 +136,27 @@ class Setting extends StatelessWidget {
                                             labelText: "Name",
                                             hintText: "Enter your name",
                                           ),
+                                          onChanged: (value) {
+                                            mybox.put('helper_2_name', value);
+                                          },
                                         ),
                                         TextFormField(
                                           decoration: const InputDecoration(
                                             labelText: "Email",
                                             hintText: "Enter your email",
                                           ),
+                                          onChanged: (value) {
+                                            mybox.put('helper_2_email', value);
+                                          },
                                         ),
                                         TextFormField(
                                           decoration: const InputDecoration(
                                             labelText: "Phone Number",
                                             hintText: "Enter your phone number",
                                           ),
+                                          onChanged: (value) {
+                                            mybox.put('helper_2_phone', value);
+                                          },
                                         ),
                                       ],
                                     ),

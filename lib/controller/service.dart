@@ -16,6 +16,7 @@ import 'package:telephony/telephony.dart';
 
 class Service extends GetxController {
   final _hasCallSupport = true.obs();
+  final myBox = Hive.box('mybox');
   var latitude = 0.0.obs();
   var longitude = 0.0.obs();
   GeocodingLocation geocodingLocation = GeocodingLocation();
@@ -30,20 +31,40 @@ class Service extends GetxController {
 
   Future<void> sendSms() async {
     final Telephony telephony = Telephony.instance;
+    final String helperNumber1 = myBox.get('helper_1_number') ?? '';
+    final String helperNumber2 = myBox.get('helper_2_number') ?? '';
+    String message = '''
+        Alert By StreeKavach \n
+         !! Help !!\n 
+         My co-ordinates\n
+          Latitude:$latitude\n 
+          Longitude:$longitude,\n 
+          Address: ${"${geocodingLocation.street},${geocodingLocation.city}"}
+          ''';
 
-    try {
-      await telephony.sendSms(
-          to: '9960564634',
-          message:
-              'Alert By StreeKavach \n !! Help !!\n My co-ordinates\n Latitude:$latitude\n Longitude:$longitude,\n Address: ${"${geocodingLocation.street},${geocodingLocation.city}"}' /*, statusListener: listener*/);
-    } catch (e) {
-      print(e);
+    if (helperNumber1 != '' && helperNumber2.length == 10) {
+      try {
+        await telephony.sendSms(
+          to: helperNumber1,
+          message: message,
+        );
+      } catch (e) {
+        print(e);
+      }
+    }
+    if (helperNumber2 != '' && helperNumber2.length == 10) {
+      try {
+        await telephony.sendSms(
+          to: helperNumber2,
+          message: message,
+        );
+      } catch (e) {
+        print(e);
+      }
     }
   }
 
   Future<void> telegramBotAlert() async {
-    //http://localhost:3000/emergency-alert/
-    final myBox = Hive.box('mybox');
     final client = http.Client();
     UserInfo userInfo = UserInfo(
       name: myBox.get('user'),
@@ -65,7 +86,6 @@ class Service extends GetxController {
     } catch (e) {
       print(e);
     } finally {
-      print("hello    llll");
       client.close();
     }
   }
