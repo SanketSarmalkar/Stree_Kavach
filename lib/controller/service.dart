@@ -31,18 +31,12 @@ class Service extends GetxController {
 
   Future<void> sendSms() async {
     final Telephony telephony = Telephony.instance;
-    final String helperNumber1 = myBox.get('helper_1_number') ?? '';
-    final String helperNumber2 = myBox.get('helper_2_number') ?? '';
-    String message = '''
-        Alert By StreeKavach \n
-         !! Help !!\n 
-         My co-ordinates\n
-          Latitude:$latitude\n 
-          Longitude:$longitude,\n 
-          Address: ${"${geocodingLocation.street},${geocodingLocation.city}"}
-          ''';
+    final String helperNumber1 = await myBox.get('helper_1_phone') ?? '';
+    final String helperNumber2 = await myBox.get('helper_2_phone') ?? '';
+    String message =
+        ' Alert By StreeKavach \n !! Help !!\n  My co-ordinates\n Latitude:$latitude\n Longitude:$longitude,\n Address: ${"${geocodingLocation.street},${geocodingLocation.city}"}';
 
-    if (helperNumber1 != '' && helperNumber2.length == 10) {
+    if (helperNumber1 != '' && helperNumber1.length == 10) {
       try {
         await telephony.sendSms(
           to: helperNumber1,

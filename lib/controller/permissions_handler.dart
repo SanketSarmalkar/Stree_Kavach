@@ -29,15 +29,15 @@ class PermissionsHandler extends GetxController {
       smsPermission.value = true;
       allPermissionsGranted.value = "1";
     } else {
-      (await Permission.location.isGranted == true)
-          ? locationPermission.value = true
-          : null;
-      (await Permission.phone.isGranted == true)
-          ? phonePermission.value = true
-          : null;
-      (await Permission.sms.isGranted == true)
-          ? smsPermission.value = true
-          : null;
+      if (await Permission.location.isGranted == true) {
+        locationPermission.value = true;
+      }
+      if (await Permission.phone.isGranted == true) {
+        phonePermission.value = true;
+      }
+      if (await Permission.sms.isGranted == true) {
+        smsPermission.value = true;
+      }
     }
     return checkPermission();
   }

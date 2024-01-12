@@ -63,8 +63,9 @@ class _SettingState extends State<Setting> {
                               child: Column(
                                 children: [
                                   TextFormField(
-                                    decoration: const InputDecoration(
-                                      labelText: "Name",
+                                    decoration: InputDecoration(
+                                      labelText:
+                                          "Name : ${mybox.get('helper_1_name')}",
                                       hintText: "Enter your name",
                                     ),
                                     onChanged: (value) {
@@ -72,8 +73,9 @@ class _SettingState extends State<Setting> {
                                     },
                                   ),
                                   TextFormField(
-                                    decoration: const InputDecoration(
-                                      labelText: "Email",
+                                    decoration: InputDecoration(
+                                      labelText:
+                                          "Email : ${mybox.get('helper_1_email')}",
                                       hintText: "Enter your email",
                                     ),
                                     onChanged: (value) {
@@ -81,8 +83,9 @@ class _SettingState extends State<Setting> {
                                     },
                                   ),
                                   TextFormField(
-                                    decoration: const InputDecoration(
-                                      labelText: "Phone Number",
+                                    decoration: InputDecoration(
+                                      labelText:
+                                          "Phone No.: ${mybox.get('helper_1_phone')}",
                                       hintText: "Enter your phone number",
                                     ),
                                     onChanged: (value) {
@@ -132,8 +135,9 @@ class _SettingState extends State<Setting> {
                                     child: Column(
                                       children: [
                                         TextFormField(
-                                          decoration: const InputDecoration(
-                                            labelText: "Name",
+                                          decoration: InputDecoration(
+                                            labelText:
+                                                "Name : ${mybox.get('helper_2_name')}",
                                             hintText: "Enter your name",
                                           ),
                                           onChanged: (value) {
@@ -141,8 +145,9 @@ class _SettingState extends State<Setting> {
                                           },
                                         ),
                                         TextFormField(
-                                          decoration: const InputDecoration(
-                                            labelText: "Email",
+                                          decoration: InputDecoration(
+                                            labelText:
+                                                "Email : ${mybox.get('helper_2_email')}",
                                             hintText: "Enter your email",
                                           ),
                                           onChanged: (value) {
@@ -150,8 +155,9 @@ class _SettingState extends State<Setting> {
                                           },
                                         ),
                                         TextFormField(
-                                          decoration: const InputDecoration(
-                                            labelText: "Phone Number",
+                                          decoration: InputDecoration(
+                                            labelText:
+                                                "Phone No.: ${mybox.get('helper_2_phone')} ",
                                             hintText: "Enter your phone number",
                                           ),
                                           onChanged: (value) {

@@ -3,7 +3,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:stree_kavach/controller/permissions_handler.dart';
 import 'package:get/get.dart';
 import 'package:stree_kavach/screens/wrapper_user_info.dart';
@@ -138,17 +138,25 @@ class _RequestAccessState extends State<RequestAccess> {
                           borderRadius: BorderRadius.all(Radius.circular(20)),
                         ),
                         height: 60,
-                        onPressed: () {
-                          if (permissionsHandler.requestPermissions() ==
-                              false) {
-                            permissionsHandler.checkServiceAfterDenied();
-                            if (permissionsHandler.checkPermission() == false) {
-                              SystemChannels.platform
-                                  .invokeMethod('SystemNavigator.pop');
-                            }
-                          } else {
+                        onPressed: () async {
+                          await permissionsHandler.requestPermissions();
+                          if (!permissionsHandler.checkPermission()) {
+                            Get.snackbar(
+                              "Permissions Denied",
+                              "Please give all permissions",
+                              snackPosition: SnackPosition.BOTTOM,
+                              backgroundColor: Colors.red,
+                              colorText: Colors.white,
+                              duration: const Duration(seconds: 3),
+                              margin: const EdgeInsets.all(10),
+                            );
+                            Timer(const Duration(seconds: 3), () {
+                              openAppSettings();
+                            });
+                          }
+                          if (permissionsHandler.checkPermission()) {
                             Timer(const Duration(seconds: 2), () {
-                              Get.to(const Wrapper());
+                              Get.to(() => const Wrapper());
                             });
                           }
                         },
