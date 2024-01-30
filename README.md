@@ -15,7 +15,7 @@ Stree Kavach is a powerful Flutter app designed to empower and ensure the safety
 </div>
 
 # Get this app
-- Download the app from <a link= "https://drive.google.com/file/d/1KtOBLCkjVhdeGePe4b5Drfj-k5uzvtKg/view?usp=sharing">here</a>
+- Download the app from [here](https://drive.google.com/file/d/1KtOBLCkjVhdeGePe4b5Drfj-k5uzvtKg/view?usp=sharing)
 
 # Features
 
@@ -49,11 +49,11 @@ Stree Kavach is a powerful Flutter app designed to empower and ensure the safety
 - Guardians receive alerts and notifications during emergencies.
 
 # ⚠️ How It Works: 
-- Upon triggering an emergency alert within the app, our dedicated Telegram bot instantly posts an alert message in a public telegram channel called <a link='https://t.me/stree_kavach_alerts'>StreeKavach</a>. 
+- Upon triggering an emergency alert within the app, our dedicated Telegram bot instantly posts an alert message in a public telegram channel called [StreeKavach](https://t.me/stree_kavach_alerts). 
 - The broadcasted message contains crucial details about the situation, ensuring a rapid response and support for the individual in distress. 
 
 # 📢 Spread the Word: 
-- Invite friends, family, and communities to join <a link='https://t.me/stree_kavach_alerts'>StreeKavach</a> channel to bolster our efforts in making safety and security a priority for everyone.
+- Invite friends, family, and communities to join [StreeKavach](https://t.me/stree_kavach_alerts) channel to bolster our efforts in making safety and security a priority for everyone.
 
 # Installation and Setup
 
