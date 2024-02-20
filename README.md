@@ -15,7 +15,7 @@ Stree Kavach is a powerful Flutter app designed to empower and ensure the safety
 </div>
 
 # Get this app
-- Download the app from [here](https://drive.google.com/file/d/1KtOBLCkjVhdeGePe4b5Drfj-k5uzvtKg/view?usp=sharing)
+- Download the app from [here](https://drive.google.com/file/d/1zMVg6NnPk9aJHS1oOb9EXisxBiyZuuHY/view?usp=sharing)
 
 # Features
 
